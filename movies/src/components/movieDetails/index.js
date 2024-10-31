@@ -3,6 +3,7 @@ import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import MonetizationIcon from "@mui/icons-material/MonetizationOn";
+import LanguageIcon from "@mui/icons-material/Language"
 import StarRate from "@mui/icons-material/StarRate";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
@@ -57,7 +58,9 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           icon={<StarRate />}
           label={`${movie.vote_average} (${movie.vote_count}`}
         />
-        <Chip label={`Released: ${movie.release_date}`} />
+        <Chip 
+        icon={<LanguageIcon />}
+        label={`Original Language: ${movie.original_language} `} />
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
       <Paper 
