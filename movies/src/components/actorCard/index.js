@@ -30,7 +30,7 @@ const ActorCard = ({ actor }) => {
       />
       <CardContent>
         <Grid container>
-          <Grid size={{xs: 6}}>
+          <Grid>
             <Typography variant="h6" component="p">
               <PersonIcon fontSize="small" />
               {actor.name}
