@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
 import MovieDetails from "../components/movieDetails/";
+import CastDetails from "../components/castList"
 //import MovieCast from "../components/actorCard";
 import PageTemplate from "../components/templateMoviePage";
 import { getMovie, getMovieCast } from '../api/tmdb-api'
@@ -12,18 +13,27 @@ import Spinner from '../components/spinner'
 const MoviePage = (props) => {
   const { id } = useParams();
   
+  //Is getting movie details
   const { data: movie, error, isLoading, isError } = useQuery(
     ["movie", { id: id }],
     getMovie,
-    getMovieCast
   );
 
-  if (isLoading) {
+  //Is getting actor details
+  const { data: cast, castError, isCastLoading, isCastError } = useQuery(
+    ["movieCast", { id: id }],
+    getMovieCast,
+  );
+
+  if (isLoading || isCastLoading) {
     return <Spinner />;
   }
 
   if (isError) {
     return <h1>{error.message}</h1>;
+  }
+  else if(isCastError){
+    return <h1>{castError.message}</h1>;
   }
 
   return (
@@ -32,7 +42,7 @@ const MoviePage = (props) => {
         <>
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />
-            
+            <CastDetails cast={cast.cast} />
           </PageTemplate>
         </>
       ) : (
