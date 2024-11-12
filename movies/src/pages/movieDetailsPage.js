@@ -42,7 +42,11 @@ const MoviePage = (props) => {
         <>
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />
+            {cast && cast.cast && cast.cast.length > 0 ? (
             <CastDetails cast={cast.cast} />
+          ) : (
+            <p>No cast information available</p>
+          )}
           </PageTemplate>
         </>
       ) : (
