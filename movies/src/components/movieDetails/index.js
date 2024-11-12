@@ -76,6 +76,7 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           </li>
         ))}
       </Paper>
+
       <Fab
         color="secondary"
         variant="extended"
