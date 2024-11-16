@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import { Avatar } from "@mui/material";
 
 
-const ActorCard = ({ actor }) => {
+const ActorCard = ({ actor,action }) => {
   return (
     <Card>
       <CardMedia
@@ -33,12 +33,23 @@ const ActorCard = ({ actor }) => {
           <Grid>
             <Typography variant="h6" component="p">
               {actor.name}
-              <PersonIcon fontSize="small" />
+
             </Typography>
           </Grid>
         </Grid>
       </CardContent>
 
+      <CardActions disableSpacing>
+      
+    
+    
+      <Link to={`/actors/${actor.id}`}>
+        <Button>
+          <PersonIcon fontSize="small" />
+        </Button>
+      </Link>
+      
+    </CardActions>
 
     </Card>
   );
