@@ -1,37 +1,45 @@
 import React from "react";
-import { getMovies } from "../api/tmdb-api";
-import PageTemplate from '../components/templateMovieListPage';
-import { useQuery } from 'react-query';
-import Spinner from '../components/spinner';
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import { useParams } from 'react-router-dom';
+import ActorDetails from "../components/actorDetails/";
+import CastDetails from "../components/castList"
+import MovieCast from "../components/actorCard";
+import PageTemplate from "../components/templateActorPage";
+import { getPerson} from '../api/tmdb-api'
+import { useQuery } from "react-query";
+import Spinner from '../components/spinner'
+
+//import useMovie from "../hooks/useMovie";
 
 const ActorDetailsPage = (props) => {
+  const { id } = useParams();
 
-  const {  data, error, isLoading, isError }  = useQuery('discover', getMovies)
+  //Is getting actor details
+  const { data: actor, error, isLoading, isError } = useQuery(
+    ["actor", { id: id }],
+    getPerson,
+  );
 
   if (isLoading) {
-    return <Spinner />
+    return <Spinner />;
   }
 
   if (isError) {
-    return <h1>{error.message}</h1>
-  }  
-  const movies = data.results;
-
-  // Redundant, but necessary to avoid app crashing.
-  const favorites = movies.filter(m => m.favorite)
-  localStorage.setItem('favorites', JSON.stringify(favorites))
-  const addToFavorites = (movieId) => true 
+    return <h1>{error.message}</h1>;
+  }
 
   return (
-    <PageTemplate
-      title="Discover"
-      movies={movies}
-      action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
-      }}
-    />
-);
-
+    <>
+      {actor ? (
+        <>
+          <PageTemplate actor={actor}>
+            <ActorDetails actor={actor} />
+          </PageTemplate>
+        </>
+      ) : (
+        <p>Waiting for actor details</p>
+      )}
+    </>
+  );
 };
+
 export default ActorDetailsPage;
