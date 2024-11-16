@@ -10,7 +10,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg'
-import { getGenres } from "../../api/tmdb-api";
+import { getGenres,getMovie } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 
@@ -88,10 +88,12 @@ export default function FilterMoviesCard(props) {
             })}
           </Select>
         </FormControl>
+
+
       </CardContent>
       <CardMedia
         sx={{ height: 300 }}
-        image={img}
+        //image={img}
         title="Filter"
       />
       <CardContent>

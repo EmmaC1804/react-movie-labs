@@ -1,6 +1,6 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Paper";
+import Grid from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import ActorCard from "../actorCard";
 
@@ -14,10 +14,10 @@ const MovieCast = ({ cast }) => {  // Don't miss this!
   return (
     <>
     <Paper component="div" sx={{ display: 'flex', justifyContent: 'space-around', p: 2 }}>
-      {cast.slice(0, 8).map((actor) => (
-        <Box key={actor.cast_id} sx={{ margin: 1 }}>
+      {cast.slice(0, 7).map((actor) => (
+        <Grid key={actor.cast_id} sx={{ padding: "8px"}}>
           <ActorCard actor={actor} />
-        </Box>
+        </Grid>
       ))}
     </Paper>
       </>

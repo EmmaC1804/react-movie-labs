@@ -32,8 +32,8 @@ const ActorCard = ({ actor }) => {
         <Grid container>
           <Grid>
             <Typography variant="h6" component="p">
-              <PersonIcon fontSize="small" />
               {actor.name}
+              <PersonIcon fontSize="small" />
             </Typography>
           </Grid>
         </Grid>
