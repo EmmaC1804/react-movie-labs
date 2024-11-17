@@ -3,7 +3,8 @@ import PageTemplate from "../components/templateWatchList";
 import { MoviesContext } from "../contexts/moviesContext";
 import { useQueries } from "react-query";
 import { getMovie } from "../api/tmdb-api";
-import Spinner from '../components/spinner'
+import Spinner from '../components/spinner';
+import RemoveFromPlaylist from "../components/cardIcons/removeFromPlaylist";
 //import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
 import WriteReview from "../components/cardIcons/writeReview";
 
@@ -40,7 +41,7 @@ const MustWatchMoviesPage = () => {
       action={(movie) => {
         return (
           <>
-          <p></p>
+          <RemoveFromPlaylist movie={movie}/>
           </>
         );
       }}
