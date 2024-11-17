@@ -2,9 +2,9 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import MovieDetails from "../components/movieDetails/";
 import CastDetails from "../components/castList"
-//import MovieCast from "../components/actorCard";
+import SimilarMovie from "../components/similarList";
 import PageTemplate from "../components/templateMoviePage";
-import { getMovie, getMovieCast } from '../api/tmdb-api'
+import { getMovie, getMovieCast, getSimilarMovie} from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 
@@ -25,7 +25,13 @@ const MoviePage = (props) => {
     getMovieCast,
   );
 
-  if (isLoading || isCastLoading) {
+  //Is getting similar movie details
+  const { data: similar, sError, sIsLoading, sIsError } = useQuery(
+    ["similar", { id: id }],
+    getSimilarMovie,
+  );
+
+  if (isLoading || isCastLoading || sIsLoading) {
     return <Spinner />;
   }
 
@@ -34,6 +40,9 @@ const MoviePage = (props) => {
   }
   else if(isCastError){
     return <h1>{castError.message}</h1>;
+  }
+  else if(sIsError){
+    return <h1>{sError.message}</h1>;
   }
 
   return (
@@ -46,6 +55,11 @@ const MoviePage = (props) => {
             <CastDetails cast={cast.cast} />
           ) : (
             <p>No cast information available</p>
+          )}
+          {similar && similar.similar && similar.similar.length > 0 ? (
+            <SimilarMovie similar={similar.similar} />
+          ) : (
+            <p>No similar movies found</p>
           )}
           </PageTemplate>
         </>

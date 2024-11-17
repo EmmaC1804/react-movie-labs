@@ -13,6 +13,7 @@ const MovieCast = ({ cast }) => {  // Don't miss this!
 
   return (
     <>
+     <Typography  variant="h5" component="h3"> Cast </Typography>
     <Paper component="div" sx={{ display: 'flex', justifyContent: 'space-around', p: 2 }}>
       {cast.slice(0, 7).map((actor) => (
         <Grid key={actor.cast_id} sx={{ padding: "8px"}}>

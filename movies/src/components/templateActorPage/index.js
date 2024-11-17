@@ -3,9 +3,11 @@ import React from "react";
 import Grid from "@mui/material/Grid2";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import Paper from "@mui/material/Paper";
 import { getActorImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
+import { Typography } from "@mui/material";
 
 const TemplateActorPage = ({ actor, children }) => {
   const { data , error, isLoading, isError } = useQuery(
@@ -23,7 +25,11 @@ const TemplateActorPage = ({ actor, children }) => {
   const images = data.profiles 
   return (
     <>
-
+    <Paper>
+        <Typography variant="h4">
+            {actor.name}
+        </Typography>
+    </Paper>
       <Grid container spacing={5} style={{ padding: "15px" }}>
         <Grid size={{xs: 3}}>
           <div sx={{
