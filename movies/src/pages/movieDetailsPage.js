@@ -56,8 +56,8 @@ const MoviePage = (props) => {
           ) : (
             <p>No cast information available</p>
           )}
-          {similar && similar.similar && similar.similar.length > 0 ? (
-            <SimilarMovie similar={similar.similar} />
+          {similar && similar.results && similar.results.length > 0 ? (
+            <SimilarMovie similar={similar.results} />
           ) : (
             <p>No similar movies found</p>
           )}

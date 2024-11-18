@@ -1,28 +1,24 @@
 import CardMedia from "@mui/material/CardMedia";
-//import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-//import FavoriteIcon from "@mui/icons-material/Favorite";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import PersonIcon from "@mui/icons-material/Person";
-//import StarRateIcon from "@mui/icons-material/StarRate";
-//import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid2";
 import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router-dom";
 import { Avatar } from "@mui/material";
 
 
-const SimilarCard = ({ movie,action }) => {
+const SimilarCard = ({ movie }) => {
   return (
     <Card>
       <CardMedia
         sx={{ height: 200 }}
         image={
-          movie.poster_path
-            ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
+          movie.similar
+            ? `https://image.tmdb.org/t/p/w200/${movie.similar}`
             : img
         }
       />
@@ -38,10 +34,8 @@ const SimilarCard = ({ movie,action }) => {
       </CardContent>
 
       <CardActions disableSpacing>
-      
-    
-    
-      <Link to={`/actors/${movie.id}`}>
+
+      <Link to={`/movies/${movie.id}`}>
         <Button>
           <PersonIcon fontSize="small" />
         </Button>

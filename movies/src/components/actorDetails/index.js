@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import BirthdayIcon from "@mui/icons-material/Cake";
-import MonetizationIcon from "@mui/icons-material/MonetizationOn";
-import LanguageIcon from "@mui/icons-material/Language"
+import PopularityIcon from "@mui/icons-material/TrendingUp";
+import WorldIcon from "@mui/icons-material/Public"
 import StarRate from "@mui/icons-material/StarRate";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
@@ -38,6 +38,8 @@ const ActorDetails = ({ actor }) => {  // Don't miss this!
 
       <Paper component="ul" sx={{...root}}>
         <Chip icon={<BirthdayIcon />} label={`${actor.birthday}`} />
+        <Chip icon={<WorldIcon />} label={`${actor.place_of_birth}`} />
+        <Chip icon={<PopularityIcon />} label={`${actor.popularity}`} />
       </Paper>
       </>
   );
