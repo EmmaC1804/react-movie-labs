@@ -3,6 +3,7 @@ import React from "react";
 import Grid from "@mui/material/Grid2";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import Header from "../headerActor";
 import Paper from "@mui/material/Paper";
 import { getActorImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
@@ -25,11 +26,7 @@ const TemplateActorPage = ({ actor, children }) => {
   const images = data.profiles 
   return (
     <>
-    <Paper>
-        <Typography variant="h4">
-            {actor.name}
-        </Typography>
-    </Paper>
+     <Header actor={actor} />
       <Grid container spacing={5} style={{ padding: "15px" }}>
         <Grid size={{xs: 3}}>
           <div sx={{

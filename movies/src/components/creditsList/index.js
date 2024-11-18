@@ -18,7 +18,7 @@ const CreditedMovie = ({ credit }) => {  // Don't miss this!
       <>
        <Typography  variant="h5" component="h3"> Credited Movies </Typography>
       <Paper component="div" sx={{ display: 'flex', justifyContent: 'space-around', p: 2 }}>
-        {credit.slice(0, 7).map((movie) => (
+        {credit.slice(0, 6).map((movie) => (
           <Grid key={movie.id} sx={{ padding: "8px"}}>
             <CreditsCard credit={movie} />
           </Grid>

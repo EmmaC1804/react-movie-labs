@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import { Avatar } from "@mui/material";
 
 
-const ActorCard = ({ actor,action }) => {
+const ActorCard = ({ actor}) => {
   return (
     <Card>
       <CardMedia
