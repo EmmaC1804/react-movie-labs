@@ -45,7 +45,7 @@ const ActorDetailsPage = (props) => {
             {credit && credit.cast && credit.cast.length > 0 ? (
             <CreditDetails credit={credit.cast} />
           ) : (
-            <p>No cast information available</p>
+            <p>No credited movie information available</p>
           )}
           </PageTemplate>
         </>
