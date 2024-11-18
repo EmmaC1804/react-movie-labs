@@ -7,25 +7,25 @@ import Button from "@mui/material/Button";
 import InfoIcon from "@mui/icons-material/Info";
 
 
-const SimilarMovie = ({ similar }) => {  // Don't miss this!
-    if (!Array.isArray(similar) || similar.length === 0) {
-        return <Typography>No similar movie information available</Typography>;
+const CreditedMovie = ({ credit }) => {  // Don't miss this!
+    if (!Array.isArray(credit) || credit.length === 0) {
+        return <Typography>No Credited movie information available</Typography>;
     }
     //const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <>
-     <Typography  variant="h5" component="h3"> Similar Movies </Typography>
+     <Typography  variant="h5" component="h3"> Credited Movies </Typography>
     <Paper component="div" sx={{ display: 'flex', justifyContent: 'space-around', p: 2 }}>
-      {similar.slice(0, 5).map((similar) => (
-        <Grid key={similar.id} sx={{ padding: "8px"}}>
+      {credit.slice(0, 5).map((credit) => (
+        <Grid key={credit.id} sx={{ padding: "8px"}}>
           <img
-              src={`https://image.tmdb.org/t/p/w200${similar.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w200${credit.poster_path}`}
             />
             <Typography variant="h7" component="p">
-              {similar.title}
+              {credit.title}
 
-              <Link to={`/movies/${similar.id}`}>
+              <Link to={`/movies/${credit.id}`}>
                 <Button>
                    <InfoIcon fontSize="small" />
                  </Button>
@@ -37,4 +37,4 @@ const SimilarMovie = ({ similar }) => {  // Don't miss this!
       </>
   );
 };
-export default SimilarMovie ;
+export default CreditedMovie ;

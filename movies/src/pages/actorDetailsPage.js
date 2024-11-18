@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import ActorDetails from "../components/actorDetails/";
 import CastDetails from "../components/castList"
 import MovieCast from "../components/actorCard";
+import CreditDetails from "../components/creditsList";
 import PageTemplate from "../components/templateActorPage";
-import { getPerson} from '../api/tmdb-api'
+import { getCreditedMovies, getPerson} from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 
@@ -19,12 +20,20 @@ const ActorDetailsPage = (props) => {
     getPerson,
   );
 
-  if (isLoading) {
+  const { data: credit, mError, mIsLoading, mIsError } = useQuery(
+    ["credit", { id: id }],
+    getCreditedMovies,
+  );
+
+  if (isLoading || mIsLoading) {
     return <Spinner />;
   }
 
   if (isError) {
     return <h1>{error.message}</h1>;
+  }
+  else if (mIsError){
+    return <h1>{mError.message}</h1>;
   }
 
   return (
@@ -33,6 +42,11 @@ const ActorDetailsPage = (props) => {
         <>
           <PageTemplate actor={actor}>
             <ActorDetails actor={actor} />
+            {credit && credit.results && credit.results.length > 0 ? (
+            <CreditDetails credit={credit.results} />
+          ) : (
+            <p>No credited movies found</p>
+          )}
           </PageTemplate>
         </>
       ) : (
