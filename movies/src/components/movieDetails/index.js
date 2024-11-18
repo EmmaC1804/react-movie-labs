@@ -10,7 +10,7 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews";
-
+import Rating from "@mui/material/Rating";
 
 
 const root = {
@@ -63,6 +63,7 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         icon={<LanguageIcon />}
         label={`Original Language: ${movie.original_language} `} />
         <Chip label={`Released: ${movie.release_date}`} />
+        <Chip label={`Budget: $${movie.budget}`} />
       </Paper>
       <Paper 
         component="ul" 
@@ -76,6 +77,12 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
             <Chip label={p.name} sx={{...chip}} />
           </li>
         ))}
+      </Paper>
+      <Paper component="ul" sx={{...root}}>
+      <li>
+          <Chip label="User Rating" sx={{...chip}} color="secondary" />
+        </li>
+        <Rating defaultValue={0} precision={0.5} size="large" max={10}></Rating>
       </Paper>
 
       <Fab
