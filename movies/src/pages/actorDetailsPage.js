@@ -42,10 +42,10 @@ const ActorDetailsPage = (props) => {
         <>
           <PageTemplate actor={actor}>
             <ActorDetails actor={actor} />
-            {credit && credit.results && credit.results.length > 0 ? (
-            <CreditDetails credit={credit.results} />
+            {credit && credit.cast && credit.cast.length > 0 ? (
+            <CreditDetails credit={credit.cast} />
           ) : (
-            <p>No credited movies found</p>
+            <p>No cast information available</p>
           )}
           </PageTemplate>
         </>
