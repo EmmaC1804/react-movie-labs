@@ -16,7 +16,7 @@ const MovieCast = ({ cast }) => {  // Don't miss this!
      <Typography  variant="h5" component="h3"> Cast </Typography>
     <Paper component="div" sx={{ display: 'flex', justifyContent: 'space-around', p: 2 }}>
       {cast.slice(0, 7).map((actor) => (
-        <Grid key={actor.cast_id} sx={{ padding: "8px"}}>
+        <Grid key={actor.cast_id} size={3} sx={{ padding: "8px"}}>
           <ActorCard actor={actor} />
         </Grid>
       ))}
