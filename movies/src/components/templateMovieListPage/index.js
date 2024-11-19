@@ -3,10 +3,12 @@ import Header from "../headerMovieList";
 import FilterCard from "../filterMoviesCard";
 import MovieList from "../movieList";
 import Grid from "@mui/material/Grid2";
+import { Pagination } from "@mui/material";
 
 function MovieListPageTemplate({ movies, title, action }) {
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
+ // const [durationFilter, setDurationFilter] = useState(200);
   const genreId = Number(genreFilter);
 
   let displayedMovies = movies
@@ -16,13 +18,22 @@ function MovieListPageTemplate({ movies, title, action }) {
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
     });
+    /*
+    .filter((m) => {
+      return m.runtime < durationFilter;
+    });
+   */
 
 
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
     else if(type === "genre") setGenreFilter(value);
   };
-
+/*
+  const handleSliderChange = (newValue) => {
+    setDurationFilter(newValue);
+  }
+*/
   return (
     <Grid container
     sx={{
@@ -41,13 +52,14 @@ function MovieListPageTemplate({ movies, title, action }) {
           <FilterCard
             onUserInput={handleChange}
             titleFilter={nameFilter}
-
             genreFilter={genreFilter}
-            
+           // onSliderInput={handleSliderChange}
+          //  durationFilter={durationFilter}
           />
         </Grid>
         <MovieList action={action} movies={displayedMovies}></MovieList>
       </Grid>
+     
     </Grid>
   );
 }

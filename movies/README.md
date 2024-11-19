@@ -1,6 +1,6 @@
 ## Assignment 1 - ReactJS app.
 
-Name: [your name]
+Name: Emma Clarke
 
 ## Overview.
 
@@ -17,7 +17,7 @@ Name: [your name]
 
 ## Setup requirements.
 
-[ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
+No non-standard setup steps necessary.
 
 ## API endpoints.
 

@@ -49,7 +49,15 @@ export default function FilterMoviesCard(props) {
     e.preventDefault();
     props.onUserInput(type, value); // NEW
   };
+/*
+  const handleSliderChange = (e,newValue) => {
+    props.onSliderInput(newValue);
+  };
 
+  const handleDurationChange = (e, newValue) => {
+    handleSliderChange(e, newValue);
+  };
+*/
   const handleTextChange = (e, props) => {
     handleChange(e, "name", e.target.value);
   };
@@ -86,9 +94,10 @@ export default function FilterMoviesCard(props) {
       label="Keyword Search"
       type="search"
       variant="filled"
-      value={props.keywordFilter}
+     // value={props.titleFilter}
       onChange={handleTextChange}
     />
+
 
 <Typography variant="h5" component="h1">
           <FilterIcon fontSize="large" />
@@ -113,6 +122,20 @@ export default function FilterMoviesCard(props) {
           </Select>
         </FormControl>
 
+        <Typography variant="h8">
+          Duration:
+        </Typography>
+        <Slider
+      //  value={props.durationFilter}
+      //  onChange={handleDurationChange}
+        valueLabelDisplay="auto"
+        step={20}
+        marks
+        defaultValue={200}
+        min={60}
+        max={200}
+       // getAriaValueText={valuetext}
+      />
 
         <Typography variant="h5" component="h1">
           <SortIcon fontSize="large" />
