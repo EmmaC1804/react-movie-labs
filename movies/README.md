@@ -54,6 +54,12 @@ No non-standard setup steps necessary.
 + /movie/:id/credits - displays the people credited in a particular film - used in movie details page
 + /person/:id/movie_credits - displays the movies a person is credited for working on - used in actor details page to show credited movies
 + /person/:id/images - displays the pictures of a psrticular person - used in actor details page to display multiple images of them
+
+## Return Statements
++ credit.cast - Within return statement of actor details page - returns the 'cast' array from tmdb when accessing getCreditedMovie from api
++ cast.cast - Within return statement of actor details page - returns the 'cast' array from tmdb when accessing getMovieCast from api
++ Similar.results - Within return statement of movie details page - returns the 'results' array from tmdb when accessing getSimilarMovies from api
+
 ## New Routes within assignment
 + /movie/must_watch - route on site header to display users watchlist page
 + /movies/now_playing - route on site header to display the new movies page
@@ -63,5 +69,4 @@ No non-standard setup steps necessary.
 ## Additional Comment 
 I used AI to debug within my assignment - eg. when adding the cast to the movie details page - 
         cast && cast.cast && cast.cast.length > 0 ? 
-This is the line it returned that stopped the runtime error - as some of my code is "copy, paste and change" from other pages within the project that have similar features, similar lines 
-may be present in return statements in other parts of the pages section of the assignment eg. actor details page.
+This is the line it returned that stopped the runtime error that was occurring - as some of my code is "copy, paste and change" from other pages within the project that have similar features similar lines may be present in return statements in other parts of the pages section of the assignment eg. actor details page.
